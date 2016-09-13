@@ -1,0 +1,22 @@
+{
+  "generator-fountain-react": {
+    "version": "0.6.0",
+    "props": {
+      "framework": "react",
+      "modules": "systemjs",
+      "js": "babel",
+      "css": "scss",
+      "resolved": "/Users/palina/.nvm/versions/node/v6.1.0/lib/node_modules/generator-fountain-webapp/node_modules/generator-fountain-react/generators/app/index.js",
+      "namespace": "fountain-react",
+      "argv": {
+        "remain": [],
+        "cooked": [],
+        "original": []
+      },
+      "skip-cache": false,
+      "skip-install": false,
+      "sample": "todoMVC",
+      "router": "router"
+    }
+  }
+}
