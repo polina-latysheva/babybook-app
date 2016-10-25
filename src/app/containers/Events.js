@@ -1,20 +1,54 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import EventsListSection from '../components/EventsListSection.js';
+import Event from '../components/Event.js';
+import {selectEvent} from '../actions/eventActions.js';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-export default class Events extends Component {
+class Events extends Component {
   render() {
-    const eventsList = ['First step', 'First smile', 'First word'];
+    console.log(this.props);
+    const {events, selectedEvent, actions} = this.props;
+
+    console.log("Hello world");
+    console.log(selectedEvent);
+    console.log(events);
     return (
       <div>
-        <div>
-          <h1>BabyBook</h1>
-        </div>
-        <div>
-          <h3>Events</h3>
-          <ul>
-            {eventsList.map((event, i) => <li key={i}>{event}</li>)}
-          </ul>
-        </div>
+        <Event
+          selectedEvent={selectedEvent}
+          />
+        <EventsListSection
+          events={events}
+          selectEvent={actions.selectEvent}
+          />
       </div>
     );
   }
 }
+
+Events.propTypes = {
+  events: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired,
+  selectedEvent: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  console.log("map state to props");
+  console.log(state);
+  return {
+    events: state.events.events,
+    selectedEvent: state.events.selectedEvent
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({selectEvent}, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Events);
