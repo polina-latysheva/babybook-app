@@ -7,12 +7,8 @@ import {bindActionCreators} from 'redux';
 
 class Events extends Component {
   render() {
-    console.log(this.props);
     const {events, selectedEvent, actions} = this.props;
 
-    console.log("Hello world");
-    console.log(selectedEvent);
-    console.log(events);
     return (
       <div>
         <Event
@@ -34,8 +30,6 @@ Events.propTypes = {
 };
 
 function mapStateToProps(state) {
-  console.log("map state to props");
-  console.log(state);
   return {
     events: state.events.events,
     selectedEvent: state.events.selectedEvent
