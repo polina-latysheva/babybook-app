@@ -1,18 +1,14 @@
 import React, {Component, PropTypes} from 'react';
+import EventLink from '../components/EventLink.js';
 
 export default class EventsListSection extends Component {
-
-  handleClick(event) {
-    this.props.selectEvent(event);
-  }
-
   render() {
     return (
       <div>
         <h1>User Events</h1>
         <div className="events-box">
           <ul className="events-list">
-            {this.props.events.map((event, i) => <li key={i} onClick={this.handleClick.bind(this, event)}><a href="#">{event.name}</a></li>)}
+            {this.props.events.map(event => <EventLink key={event.id} event={event} selectEvent={this.props.selectEvent}/>)}
           </ul>
         </div>
       </div>
