@@ -8,7 +8,6 @@ import {bindActionCreators} from 'redux';
 class Events extends Component {
   render() {
     const {events, selectedEvent, actions} = this.props;
-
     return (
       <div>
         <Event

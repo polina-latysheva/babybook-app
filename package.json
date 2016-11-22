@@ -147,5 +147,8 @@
     "globals": {
       "SystemJS": true
     }
+  },
+  "dependencies": {
+    "firebase": "^3.6.0"
   }
 }
